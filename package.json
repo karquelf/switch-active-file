@@ -1,7 +1,7 @@
 {
   "name": "switch-active-file",
   "displayName": "Switch active file",
-  "description": "Allow to switch between last file viewed and current file with a hotkey. Or to switch between registered files.",
+  "description": "Allow to switch between last file viewed and current file with a hotkey.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.86.0"
@@ -9,13 +9,26 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "switch",
+    "active",
+    "current",
+    "file"
+  ],
+  "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "switch-active-file.helloWorld",
-        "title": "Hello World"
+        "command": "switch-active-file.switchActiveFile",
+        "title": "Switch active file"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "switch-active-file.switchActiveFile",
+        "key": "Ctrl+;",
+        "mac": "Cmd+;"
       }
     ]
   },
