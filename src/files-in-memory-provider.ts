@@ -14,22 +14,42 @@ export class filesInMemoryProvider implements vscode.TreeDataProvider<vscode.Tre
 
   getChildren(element?: vscode.TreeItem): Thenable<vscode.TreeItem[]> {
     if (!element) {
-      return Promise.resolve([new vscode.TreeItem('last viewed file', vscode.TreeItemCollapsibleState.Expanded)]);
+      return Promise.resolve([
+        new vscode.TreeItem('last viewed file', vscode.TreeItemCollapsibleState.Expanded),
+        new vscode.TreeItem('registered files', vscode.TreeItemCollapsibleState.Expanded),
+      ]);
     } else {
-      if (element.label === 'last viewed file') {
-        if (!this.context.workspaceState.get('previousFile')) {
-          return Promise.resolve([]);
-        }
-
-        const previousFileName:string = (this.context.workspaceState.get('previousFile') as string).split('/').pop() || '';
-        const previousFileItem = new vscode.TreeItem(previousFileName);
-        previousFileItem.tooltip = this.context.workspaceState.get('previousFile');
-
-        return Promise.resolve([previousFileItem]);
+      switch (element.label) {
+        case 'last viewed file':
+          return this.getLastViewedFile();
+        case 'registered files':
+          return this.getRegisteredFiles();
       }
     }
 
     return Promise.resolve([]);
+  }
+
+  private async getLastViewedFile(): Promise<vscode.TreeItem[]> {
+    if (!this.context.workspaceState.get('previousFile')) {
+      return [];
+    }
+
+    const previousFileName:string = (this.context.workspaceState.get('previousFile') as string).split('/').pop() || '';
+    const previousFileItem = new vscode.TreeItem(previousFileName);
+    previousFileItem.tooltip = this.context.workspaceState.get('previousFile');
+
+    return [previousFileItem];
+  }
+
+  private async getRegisteredFiles(): Promise<vscode.TreeItem[]> {
+    const registeredFiles:Array<String> = this.context.workspaceState.get('registeredFiles') || [];
+    return registeredFiles.map((file) => {
+      const fileName:string = file.split('/').pop() || '';
+      const fileItem = new vscode.TreeItem(fileName);
+      fileItem.tooltip = String(file);
+      return fileItem;
+    });
   }
 
   refresh(): void {

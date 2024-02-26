@@ -19,6 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 
+  // Register the commands
+
   let switchFile = vscode.commands.registerCommand('switch-active-file.switchActiveFile', () => {
     const previousFile = context.workspaceState.get('previousFile');
     if (previousFile !== undefined) {
@@ -37,8 +39,26 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
 
+  let registerFile = vscode.commands.registerCommand('switch-active-file.registerFile', () => {
+    const activeFile:string = context.workspaceState.get('activeFile') || '';
+    if (activeFile.length > 0) {
+      const registeredFiles:Array<String> = context.workspaceState.get('registeredFiles') || [];
+      if (registeredFiles.includes(activeFile)) {
+        registeredFiles.splice(registeredFiles.indexOf(activeFile), 1);
+      } else {
+        registeredFiles.push(activeFile);
+        if (registeredFiles.length > 9) {
+          registeredFiles.shift();
+        }
+      }
+      context.workspaceState.update('registeredFiles', registeredFiles);
+      treeProvider.refresh();
+    }
+  });
+
   context.subscriptions.push(switchFile);
   context.subscriptions.push(focusView);
+  context.subscriptions.push(registerFile);
 
   vscode.window.registerTreeDataProvider('switch-active-file', treeProvider);
 }
