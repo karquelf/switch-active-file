@@ -2,7 +2,7 @@
   "name": "switch-active-file",
   "displayName": "Switch active file",
   "description": "Allow to switch between last file viewed and current file with a hotkey (Ctrl+;/Cmd+;).",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": "https://github.com/karquelf/switch-active-file",
   "engines": {
     "vscode": "^1.86.0"
