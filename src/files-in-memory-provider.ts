@@ -43,7 +43,7 @@ export class filesInMemoryProvider implements vscode.TreeDataProvider<vscode.Tre
   }
 
   private async getRegisteredFiles(): Promise<vscode.TreeItem[]> {
-    const registeredFiles:Array<String> = this.context.workspaceState.get('registeredFiles') || [];
+    const registeredFiles:Array<string> = this.context.workspaceState.get('registeredFiles') || [];
     return registeredFiles.map((file) => {
       const fileName:string = file.split('/').pop() || '';
       const fileItem = new vscode.TreeItem(fileName);

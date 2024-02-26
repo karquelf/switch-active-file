@@ -31,6 +31,42 @@
       {
         "command": "switch-active-file.registerFile",
         "title": "Register file"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile1",
+        "title": "Switch to registered file 1"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile2",
+        "title": "Switch to registered file 2"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile3",
+        "title": "Switch to registered file 3"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile4",
+        "title": "Switch to registered file 4"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile5",
+        "title": "Switch to registered file 5"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile6",
+        "title": "Switch to registered file 6"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile7",
+        "title": "Switch to registered file 7"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile8",
+        "title": "Switch to registered file 8"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile9",
+        "title": "Switch to registered file 9"
       }
     ],
     "keybindings": [
@@ -48,6 +84,51 @@
         "command": "switch-active-file.registerFile",
         "key": "Ctrl+Shift+'",
         "mac": "Cmd+Shift+'"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile1",
+        "key": "Ctrl+' 1",
+        "mac": "Cmd+' 1"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile2",
+        "key": "Ctrl+' 2",
+        "mac": "Cmd+' 2"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile3",
+        "key": "Ctrl+' 3",
+        "mac": "Cmd+' 3"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile4",
+        "key": "Ctrl+' 4",
+        "mac": "Cmd+' 4"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile5",
+        "key": "Ctrl+' 5",
+        "mac": "Cmd+' 5"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile6",
+        "key": "Ctrl+' 6",
+        "mac": "Cmd+' 6"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile7",
+        "key": "Ctrl+' 7",
+        "mac": "Cmd+' 7"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile8",
+        "key": "Ctrl+' 8",
+        "mac": "Cmd+' 8"
+      },
+      {
+        "command": "switch-active-file.switchToRegisteredFile9",
+        "key": "Ctrl+' 9",
+        "mac": "Cmd+' 9"
       }
     ],
     "views": {
