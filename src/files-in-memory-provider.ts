@@ -48,6 +48,7 @@ export class filesInMemoryProvider implements vscode.TreeDataProvider<vscode.Tre
       const fileName:string = file.split('/').pop() || '';
       const fileItem = new vscode.TreeItem(fileName);
       fileItem.tooltip = String(file);
+      fileItem.contextValue = 'registeredFile';
       return fileItem;
     });
   }

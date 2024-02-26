@@ -84,6 +84,19 @@ export function activate(context: vscode.ExtensionContext) {
     switchToRegisteredFile(context, 8);
   });
 
+  let switchToFile = vscode.commands.registerCommand('switch-active-file.switchToFile', (fileItem) => {
+    vscode.window.showTextDocument(vscode.Uri.file(fileItem.tooltip));
+  });
+
+  let removeFile = vscode.commands.registerCommand('switch-active-file.removeFile', (fileItem) => {
+    const registeredFiles:Array<string> = context.workspaceState.get('registeredFiles') || [];
+    if (registeredFiles.includes(fileItem.tooltip)) {
+      registeredFiles.splice(registeredFiles.indexOf(fileItem.tooltip), 1);
+      context.workspaceState.update('registeredFiles', registeredFiles);
+      treeProvider.refresh();
+    }
+  });
+
   context.subscriptions.push(switchFile);
   context.subscriptions.push(focusView);
   context.subscriptions.push(registerFile);
@@ -96,6 +109,8 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(switchToRegisteredFile7);
   context.subscriptions.push(switchToRegisteredFile8);
   context.subscriptions.push(switchToRegisteredFile9);
+  context.subscriptions.push(switchToFile);
+  context.subscriptions.push(removeFile);
 
   vscode.window.registerTreeDataProvider('switch-active-file', treeProvider);
 }
