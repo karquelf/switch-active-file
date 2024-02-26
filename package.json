@@ -23,6 +23,10 @@
       {
         "command": "switch-active-file.switchActiveFile",
         "title": "Switch active file"
+      },
+      {
+        "command": "switch-active-file.focusView",
+        "title": "Focus switch-active-file View"
       }
     ],
     "keybindings": [
@@ -30,8 +34,21 @@
         "command": "switch-active-file.switchActiveFile",
         "key": "Ctrl+;",
         "mac": "Cmd+;"
+      },
+      {
+        "command": "switch-active-file.focusView",
+        "key": "Ctrl+Shift+;",
+        "mac": "Cmd+Shift+;"
       }
-    ]
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "switch-active-file",
+          "name": "Switch active file"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
