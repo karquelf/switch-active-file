@@ -38,6 +38,7 @@ export class filesInMemoryProvider implements vscode.TreeDataProvider<vscode.Tre
     const previousFileName:string = (this.context.workspaceState.get('previousFile') as string).split('/').pop() || '';
     const previousFileItem = new vscode.TreeItem(previousFileName);
     previousFileItem.tooltip = this.context.workspaceState.get('previousFile');
+    previousFileItem.iconPath = new vscode.ThemeIcon('file');
 
     return [previousFileItem];
   }
@@ -49,6 +50,8 @@ export class filesInMemoryProvider implements vscode.TreeDataProvider<vscode.Tre
       const fileItem = new vscode.TreeItem(fileName);
       fileItem.tooltip = String(file);
       fileItem.contextValue = 'registeredFile';
+      fileItem.iconPath = new vscode.ThemeIcon('file');
+
       return fileItem;
     });
   }
