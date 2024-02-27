@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "publisher": "fabien-karquel",
   "repository": "https://github.com/karquelf/switch-active-file",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.86.0"
   },
