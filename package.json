@@ -3,6 +3,7 @@
   "displayName": "Switch active file",
   "description": "Switch between last viewed file and current file at the speed of light. Can register files to switch to them fast too.",
   "version": "1.0.0",
+  "publisher": "fabien-karquel",
   "repository": "https://github.com/karquelf/switch-active-file",
   "engines": {
     "vscode": "^1.86.0"
