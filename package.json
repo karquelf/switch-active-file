@@ -1,7 +1,7 @@
 {
   "name": "switch-active-file",
   "displayName": "Switch active file",
-  "description": "Allow to switch between last file viewed and current file with a hotkey (Ctrl+;/Cmd+;).",
+  "description": "Switch between last file viewed and current file at the speed of light. Can register files to switch to them fast too.",
   "version": "0.4.0",
   "repository": "https://github.com/karquelf/switch-active-file",
   "engines": {
