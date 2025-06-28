@@ -2,7 +2,7 @@
   "name": "switch-active-file",
   "displayName": "Switch active file",
   "description": "Switch between last viewed file and current file at the speed of light. Can register files to switch to them fast too.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "fabien-karquel",
   "repository": "https://github.com/karquelf/switch-active-file",
   "icon": "icon.png",

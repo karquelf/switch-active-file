@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.onDidChangeActiveTextEditor((editor) => {
       if (editor) {
         context.workspaceState.update('previousFile', context.workspaceState.get('activeFile'));
-        context.workspaceState.update('activeFile', editor.document.fileName);
+        context.workspaceState.update('activeFile', editor.document.uri.toString());
 
         treeProvider.refresh();
       }
@@ -22,9 +22,9 @@ export function activate(context: vscode.ExtensionContext) {
   // Register the commands
 
   let switchFile = vscode.commands.registerCommand('switch-active-file.switchActiveFile', () => {
-    const previousFile = context.workspaceState.get('previousFile');
-    if (previousFile !== undefined) {
-      vscode.window.showTextDocument(vscode.Uri.file(context.workspaceState.get('previousFile') || ''));
+    const previousFileUri = context.workspaceState.get('previousFile') as string;
+    if (previousFileUri) {
+      vscode.window.showTextDocument(vscode.Uri.parse(previousFileUri));
     }
   });
 
@@ -34,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
       context.workspaceState.update('viewFocused', false);
       return;
     } else {
-      vscode.commands.executeCommand("switch-active-file.focus")
+      vscode.commands.executeCommand("switch-active-file.focus");
       context.workspaceState.update('viewFocused', true);
     }
   });
